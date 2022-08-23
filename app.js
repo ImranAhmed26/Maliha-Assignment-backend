@@ -1,17 +1,20 @@
 const express = require("express");
-const app = express();
-const items = require("./routes/items");
-const connetDB = require("./db/connect");
 require("dotenv").config();
+const cors = require("cors");
+
+const connetDB = require("./db/connect");
+const items = require("./routes/items");
+
+const app = express();
 
 // middlewares
-
+app.use(cors());
 app.use(express.json());
 
 //routes
-app.get("/hello", (req, res) => {
-  res.send("Maliha Assign backend");
-});
+// app.get("/hello", (req, res) => {
+//   res.send("Maliha Assign backend");
+// });
 
 app.use("/api/v1/items", items);
 

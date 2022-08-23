@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use("/api/v1/items", items);
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const start = async () => {
   try {
